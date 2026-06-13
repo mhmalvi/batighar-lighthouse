@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bātighar - The Lighthouse</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'bd-green': '#044d38', // Deeper, more premium Emerald
+              'bd-green-light': '#ecfdf5',
+              'bd-red': '#9f1239', // Richer Crimson
+              'terra-cotta': '#9a3412', // Darker Burnt Orange
+              'river-blue': '#0e7490', // Deep Cyan
+              'rice-white': '#fafaf9', // Warm Stone
+              'monsoon-grey': '#334155', // Slate
+              'surface': '#ffffff',
+              'gold-accent': '#d4af37', // Premium Gold
+              // Gen-Z Colors
+              'neon-lime': '#ccff00',
+              'electric-purple': '#b026ff',
+              'hot-pink': '#ff0099',
+            },
+            fontFamily: {
+              sans: ['Inter', 'Noto Sans Bengali', 'sans-serif'],
+              serif: ['Playfair Display', 'Merriweather', 'serif'],
+              bangla: ['Noto Sans Bengali', 'sans-serif'],
+              'galada': ['Galada', 'cursive'],
+              'mina': ['Mina', 'sans-serif'],
+            },
+            boxShadow: {
+              'soft': '0 10px 40px -10px rgba(0, 0, 0, 0.05)',
+              'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+              'premium': '0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02)',
+              'neon': '0 0 10px rgba(204, 255, 0, 0.5), 0 0 20px rgba(176, 38, 255, 0.3)',
+            },
+            animation: {
+              'rain': 'rain 0.5s linear infinite',
+              'sway': 'sway 3s ease-in-out infinite',
+              'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+              'float': 'float 6s ease-in-out infinite',
+            },
+            keyframes: {
+              rain: {
+                '0%': { transform: 'translateY(0) skewX(-10deg)' },
+                '100%': { transform: 'translateY(20px) skewX(-10deg)' },
+              },
+              sway: {
+                '0%, 100%': { transform: 'rotate(-3deg)' },
+                '50%': { transform: 'rotate(3deg)' },
+              },
+              float: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-5px)' },
+              }
+            }
+          },
+        },
+      };
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Galada&family=Mina:wght@400;700&family=Outfit:wght@400;600;800&display=swap');
+      
+      body {
+        background-color: #fafaf9;
+        color: #1e293b;
+        font-family: 'Inter', 'Noto Sans Bengali', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      .dark body {
+        background-color: #0f172a;
+        color: #e2e8f0;
+      }
+      
+      /* Sophisticated background pattern */
+      .bg-nakshi {
+        background-color: #fcfcfc;
+        background-image: 
+          radial-gradient(#e5e7eb 1px, transparent 1px);
+        background-size: 24px 24px;
+      }
+
+      .dark .bg-nakshi {
+        background-color: #0f172a;
+        background-image: 
+          radial-gradient(#1e293b 1px, transparent 1px);
+      }
+
+      /* Gen-Z / Zen Mode Styles */
+      /* More colorful, friendly, rounded, and pop-culture influenced */
+      .gen-z-mode body {
+        background-color: #fff0f5; /* Lavender Blush */
+        background-image: radial-gradient(#eab3ff 2px, transparent 2px), radial-gradient(#9dffad 2px, transparent 2px);
+        background-position: 0 0, 25px 25px;
+        background-size: 50px 50px;
+        font-family: 'Outfit', sans-serif !important;
+      }
+      
+      .gen-z-mode .bg-nakshi {
+         background-color: #fff0f5; 
+         background-image: radial-gradient(#eab3ff 2px, transparent 2px), radial-gradient(#9dffad 2px, transparent 2px);
+      }
+
+      .gen-z-mode button, .gen-z-mode div[role="button"] {
+        border: 2px solid #000 !important;
+        box-shadow: 4px 4px 0px 0px #000 !important;
+        transition: all 0.1s ease-in-out;
+      }
+      
+      .gen-z-mode button:active {
+        box-shadow: 0px 0px 0px 0px #000 !important;
+        transform: translate(4px, 4px) !important;
+      }
+      
+      /* Make cards pop */
+      .gen-z-mode .bg-white, .gen-z-mode .bg-slate-50 {
+         border: 2px solid #000;
+         border-radius: 20px;
+         box-shadow: 6px 6px 0px rgba(0,0,0,0.1);
+      }
+      
+      /* Active Navigation items in Gen-Z mode should be super colorful */
+      .gen-z-mode nav button span.bg-bd-green {
+         background-color: #b026ff !important; /* Electric Purple for active dot */
+      }
+      .gen-z-mode nav button .text-bd-green {
+         color: #ff0099 !important; /* Hot Pink for active icon */
+      }
+
+      /* Rain Animation Classes */
+      .rain-overlay {
+        background: linear-gradient(to bottom, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 100%), url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><line x1="10" y1="0" x2="10" y2="10" stroke="%2394a3b8" stroke-width="1" opacity="0.5"/></svg>');
+        animation: rain 0.8s linear infinite;
+        opacity: 0.3;
+        pointer-events: none;
+      }
+
+      /* Global Scrollbar Hiding */
+      * {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
+      *::-webkit-scrollbar {
+        display: none; /* Chrome, Safari and Opera */
+      }
+
+      .mask-linear-fade {
+        mask-image: linear-gradient(to right, black 85%, transparent 100%);
+        -webkit-mask-image: linear-gradient(to right, black 85%, transparent 100%);
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body>
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>

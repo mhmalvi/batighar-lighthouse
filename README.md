@@ -1,4 +1,6 @@
 <!-- repo-card -->
+![batighar-lighthouse](docs/assets/screenshot.png)
+
 ![batighar-lighthouse](docs/assets/social-card.png)
 
 ![batighar-lighthouse — architecture](docs/assets/architecture.png)

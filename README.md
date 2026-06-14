@@ -1,6 +1,8 @@
 <!-- repo-card -->
 ![batighar-lighthouse](docs/assets/social-card.png)
 
+![batighar-lighthouse — architecture](docs/assets/architecture.png)
+
 # Bātighar (Lighthouse)
 
 A social media platform rooted in Bangladeshi culture, featuring emotion-based
